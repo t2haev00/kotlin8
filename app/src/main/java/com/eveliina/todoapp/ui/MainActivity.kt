@@ -1,4 +1,4 @@
-package com.eveliina.todoapp
+package com.eveliina.todoapp.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,7 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.eveliina.todoapp.ui.theme.ToDoAppTheme
+import com.eveliina.todoapp.viewmodel.TodoViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //
+                    TodoScreen()
                 }
             }
         }
@@ -35,7 +37,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ToDoScreen() {
+fun TodoScreen(todoViewModel: TodoViewModel = viewModel()) {
+    ToDoList(todoViewModel.todos)
 
 }
 
