@@ -19,7 +19,7 @@ interface TodosApi {
     suspend fun getTodos(): List<Todo>
 
     companion object {
-        var todosService: TodosApi? = null
+        private var todosService: TodosApi? = null
 
         fun getInstance(): TodosApi {
             if (todosService === null) {
